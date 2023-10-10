@@ -54,11 +54,21 @@
          border-radius: 4px;
          background-color: #f1f1f1;
       }
-      input[type=button]{
+      input[type=button2]{
+       background-color: white;
+       border: none;
+       color: black;
+       padding: 8px 16px;
+       font-size: 12px;
+       text-decoration: none;
+       margin: 4px 2px;
+       cursor: pointer;
+      }
+      input[type=button2]{
        background-color: #04AA6D;
        border: none;
        color: white;
-       padding: 8px 16px;
+       padding: 8px 8px;
        font-size: 12px;
        text-decoration: none;
        margin: 4px 2px;
@@ -101,14 +111,15 @@
             <td style="width:20%; text-align:left"><h2>Word List</h2></td>
             <td style="text-align:right">
               <form>
-                <select id="select level" name="select level">
-                <option value="select level">select level</option>
+                <select id="select level" name="select level" placeholder="Search..">
+                <option value="all">show all</option>
                 <option value="easy">*</option>
                 <option value="normal">**</option>
                 <option value="hard">***</option>
                 </select>
                 <input type="text" name="search" placeholder="Search..">
-                <input type="button" value="Button">
+                <input type="button1" value="Search">
+                <input type="button2" value="Add">
               </form>
             </td>
         </tr>
