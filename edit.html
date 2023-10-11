@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +55,7 @@
     <tr>
       <td>date</td>
       <td>
-        <input class="input-field" type="text" id="date">
+        <input class="input-field" type="date" id="date" name="update date">
       </td>
     </tr>
   </table>
@@ -73,7 +72,7 @@
     var meaning = document.getElementById("meaning").value;
 
     if (!level || !word || !meaning) {
-        alert('레벨, 성별, 학부는 반드시 입력해야 합니다.');
+        alert('Level, Word, Meaning는 반드시 입력해야 합니다.');
         return;
     }
 
