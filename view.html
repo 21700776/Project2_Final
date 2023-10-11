@@ -1,9 +1,57 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h2>view.html파일</h2>
-<p>index.html로 이동하기</p>
-<a href="index.html" target="_blank">index.html</a><br>
-<p>클릭하면 해당 파일이 실행됩니다.</p>
-</body>
+    <head>
+        
+      <title>Project2_final_21700776_Han_Changmin_View</title>
+        <!-- Custom styles for this template -->
+      
+        <style> 
+        table {
+         /*border-collapse: collapse;*/
+         width: 50%;
+        }
+        td {
+         border: 1px solid black;
+         padding: 10px;
+         text-align: center;
+        }
+        tr td:first-child {
+         font-weight: bold;
+         background-color: white
+        }
+        .button-container {
+         margin-top: 20px;
+        }
+        button {
+         background-color: #04AA6D;
+         border: none;
+         color: white;
+         padding: 8px 8px;
+         font-size: 12px;
+         text-decoration: none;
+         margin: 4px 2px;
+         cursor: pointer;
+        }
+        </style>
+    </head>
+    
+  <body><h3><sapn id="name"></sapn> 학부생 Info.</h3>
+
+    <table id="studentInfo">
+      <tr><td>학번</td><td id="studentNo"></td></tr>
+      <tr><td>성별</td><td id="sex"></td></tr>
+      <tr><td>학부</td><td id="department"></td></tr>
+      <tr><td>생년월일</td><td id="birth"></td></tr>
+      <tr><td>MBTI</td><td id="mbti"></td></tr>
+      <tr><td>전화번호</td><td id="phoneno"></td></tr>
+      <tr><td>E-mail</td><td id="email"></td></tr>
+    </table>
+  
+  <div class="button-container" id="btnContainer">
+    <button onclick="editStudentInfo()">Edit</button>
+    <button onclick="confirmDelete()">Delete</button>
+  </div>
+    <button type="button" onclick="location.href='index.html'">처음으로</button>
+    <p>클릭하면 해당 파일이 실행됩니다.</p>
+  </body>
 </html>
