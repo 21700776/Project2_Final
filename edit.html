@@ -25,6 +25,17 @@
         width: 80%;
         padding: 10px;
       }
+      button {
+         margin-top: 20px;
+         background-color: #04AA6D;
+         border: none;
+         color: white;
+         padding: 8px 8px;
+         font-size: 12px;
+         text-decoration: none;
+         margin: 4px 2px;
+         cursor: pointer;
+      }
     </style>
 </head>
 
@@ -55,32 +66,34 @@
     <tr>
       <td>date</td>
       <td>
-        <input class="input-field" type="date" id="date" name="update date">
+        <input class="input-field" type="text" id="date">
       </td>
     </tr>
   </table>
 
 <div class="button-container" id="btnContainer">
   <button onclick="confirmEdit()">수정</button>
+<div class="button-container" id="btnContainer"></div>
+      <button type="button" onclick="location.href='index.html'">처음으로</button>    
 </div>
 
 <script type="text/javascript">
 
-  function confirmEdit(){
+  function confirmEdit() {
     var level = document.getElementById("level").value;
     var word = document.getElementById("word").value;
     var meaning = document.getElementById("meaning").value;
 
     if (!level || !word || !meaning) {
-        alert('Level, Word, Meaning는 반드시 입력해야 합니다.');
-        return;
+      alert('Level, Word, Meaning는 반드시 입력해야 합니다.');
+      return;
     }
 
-    if (confirm("게시물을 수정할까요?")){
-      null;
+    if (confirm("게시물을 수정할까요?")) {
+      // 수정 코드 추가
+      // 게시물을 수정하거나 다른 작업을 수행하는 코드를 여기에 추가하세요.
     }
   }
-
   // 테이블의 가운데에 버튼을 맞추는 함수
   function alignButtons() {
 
@@ -95,7 +108,7 @@
   window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     document.getElementById("level").value = urlParams.get('level');
-    document.getElementById("word").innerText = urlParams.get('word');
+    document.getElementById("word").value = urlParams.get('word');
     document.getElementById("meaning").value = urlParams.get('meaning');
     document.getElementById("date").value = urlParams.get('date');
 
