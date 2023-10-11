@@ -1,9 +1,115 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h2>add.html파일</h2>
-<p>index.html로 이동하기</p>
-<a href="index.html" target="_blank">index.html</a><br>
-<p>클릭하면 해당 파일이 실행됩니다.</p>
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Add Word</title>
+
+    <!-- 제목 스타일 -->
+    <style>
+        h2 {
+            margin-left: 20px;
+            font-size: 25px;
+            font-weight: bold;
+            color: brown;
+        }
+    </style>
+
+    <!-- 입력 칸 스타일 -->
+    <style>
+        input[type=text], select {
+            width: 210px;
+        }
+    </style>
+
+<!-- 버튼 스타일 -->
+    <style>
+        .add-button {
+            margin-left: 150px;
+        }
+    </style>
+
+<!-- 테이블 스타일 -->
+    <style>
+        table {
+            margin-left: 20px;
+        }
+    </style>
+
+    <!-- 테이블 위아래 선 스타일 -->
+    <style>
+        .table-wrapper {
+            width: 330px;
+            margin-left: 20px;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            padding: 10px 0; 
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            var level = document.getElementById("level").value;
+            var word = document.getElementById("word").value;
+            var meaning = document.getElementById("meaning").value;
+            var date = document.getElementById("date").value;
+
+            if(level === "" || word === "" || meaning === "" || date === "") {
+                alert("Level, Word, Meaning, Date중 하나를 꼭 입력해주세요");
+                return false;
+            }
+            else {
+                alert('게시물이 추가됩니다.');
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body id="add-page">
+<div>
+    <!-- 학번 이름 성별 학부 / 생년월일 MBTI 전화번호 이메일-->
+<h2>Word 입력</h2>
+<form id="form" th:object="${information}">
+    <div class="table-wrapper">
+    <table>
+      <tr><td>Level</td><td>
+            <select id="level" th:field="*{level}">
+            <optgroup label="Choose Level">
+            <option value="*">*</option>
+            <option value="**">**</option>
+            <option value="***">***</option>
+            </select></td></tr>
+      <tr>
+      <tr>
+        <td>Word</td>
+        <td>
+            <input id="word" type="text" th:field="*{word}" placeholder="단어를 입력하세요">
+        </td>
+      </tr>
+      <tr>
+        <td>Meaning</td>
+        <td>
+            <input id="meaning" type="text" th:field="*{meaning}" placeholder="뜻을 입력하세요">
+        </td>
+        </tr>
+        <tr>
+        <td>date</td>
+        <td>
+            <input id="date" type="date" th:field="*{date}" placeholder="날짜를 입력하세요">
+        </td>
+      </tr>
+</table>
+</div>
+    <p>
+      <button type="button" onclick=validateForm() class="add-button">추가</button>
+      <button type="button" onclick="location.href='index.html'">처음으로</button>  
+    </p>
+     
+</form>
+</div>
+
+
+    
 </body>
 </html>
