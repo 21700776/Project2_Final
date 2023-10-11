@@ -7,7 +7,7 @@
     <style>
       table {
         border-collapse: collapse;
-        width: 50%;
+        width: 60%;
       }
       td {
         border: 1px solid black;
@@ -23,7 +23,7 @@
       }
       .input-field, select {
         width: 80%;
-        padding: 5px;
+        padding: 10px;
       }
     </style>
 </head>
@@ -35,14 +35,29 @@
   <table id="wordInformation">
     <tr><td>Level</td><td>
       <select id="level" th:field="*{level}">
-      <option value="">choose level</option>
+      <optgroup label="Choose Level">
       <option value="*">*</option>
       <option value="**">**</option>
       <option value="***">***</option>
       </select></td></tr>
-    <tr><td>Word</td><td><input class="input-field" type="text" id="word"></td></tr>
-    <tr><td>Meaning</td><td><input class="input-field" type="text" id="meaning"></td></tr>
-    <tr><td>date</td><td><input class="input-field" type="date" id="date" name="update date"></td></tr>
+    <tr>
+      <td>Word</td>
+      <td>
+        <input class="input-field" type="text" id="word">
+      </td>
+    </tr>
+    <tr>
+      <td>Meaning</td>
+      <td>
+        <input class="input-field" type="text" id="meaning">
+      </td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>
+        <input class="input-field" type="text" id="date">
+      </td>
+    </tr>
   </table>
 
 <div class="button-container" id="btnContainer">
@@ -57,7 +72,7 @@
     var meaning = document.getElementById("meaning").value;
 
     if (!level || !word || !meaning) {
-        alert('학번, 성별, 학부는 반드시 입력해야 합니다.');
+        alert('레벨, 성별, 학부는 반드시 입력해야 합니다.');
         return;
     }
 
@@ -87,7 +102,7 @@
   alignButtons(); // 페이지 로드 시 버튼 위치 조정
 
   window.onresize = alignButtons;
-};
+  };
 </script>
 
 </body>
