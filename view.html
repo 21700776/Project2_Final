@@ -2,7 +2,7 @@
 <html>
     <head>
         
-      <title>Project2_final_21700776_Han_Changmin_View</title>
+      <title>View Information</title>
         <!-- Custom styles for this template -->
       
         <style> 
@@ -23,6 +23,7 @@
          margin-top: 20px;
         }
         button {
+         margin-top: 20px;
          background-color: #04AA6D;
          border: none;
          color: white;
@@ -35,23 +36,61 @@
         </style>
     </head>
     
-  <body><h3><sapn id="name"></sapn> 학부생 Info.</h3>
+  <body id="view-page">
+    <h3><sapn id="word"></sapn> word infomation.</h3>
 
-    <table id="studentInfo">
-      <tr><td>학번</td><td id="studentNo"></td></tr>
-      <tr><td>성별</td><td id="sex"></td></tr>
-      <tr><td>학부</td><td id="department"></td></tr>
-      <tr><td>생년월일</td><td id="birth"></td></tr>
-      <tr><td>MBTI</td><td id="mbti"></td></tr>
-      <tr><td>전화번호</td><td id="phoneno"></td></tr>
-      <tr><td>E-mail</td><td id="email"></td></tr>
+    <table id="wordInfomation">
+      <tr><td>Level</td><td id="level"></td></tr>
+      <tr><td>Word</td><td id="word"></td></tr>
+      <tr><td>Meaning</td><td id="meaning"></td></tr>
+      <tr><td>Date</td><td id="date"></td></tr>
     </table>
-  
-  <div class="button-container" id="btnContainer">
-    <button onclick="editStudentInfo()">Edit</button>
-    <button onclick="confirmDelete()">Delete</button>
-  </div>
-    <button type="button" onclick="location.href='index.html'">처음으로</button>
-    <p>클릭하면 해당 파일이 실행됩니다.</p>
+    <div class="button-container" id="btnContainer">
+      <button onclick="editStudentInfo()">Edit</button>
+      <button onclick="confirmDelete()">Delete</button>
+
+    <div class="button-container" id="btnContainer"></div>
+      <button type="button" onclick="location.href='index.html'">처음으로</button>    
+    </div>
+  <script type="text/javascript">//자바스크립트
+
+    //button layout
+    function alignButtons() {
+    const tableWidth = document.getElementById('wordInfomation').offsetWidth;
+    const btnContainer = document.getElementById('btnContainer');
+    btnContainer.style.width = `${tableWidth}px`;
+    btnContainer.style.marginLeft = 'auto'; 
+    btnContainer.style.marginRight = 'auto'; 
+    }
+
+    //window display
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      document.getElementById("level").innerText = urlParams.get('level');
+      document.getElementById("word").innerText = urlParams.get('word');
+      document.getElementById("meaning").innerText = urlParams.get('meaning');
+      document.getElementById("date").innerText = urlParams.get('date');
+      alignButtons();
+      window.onresize = alignButtons;
+    };
+    
+    // edit 버튼
+    function editWord() {
+      const level = document.getElementById("level").innerText;
+      const word = document.getElementById("word").innerText;
+      const meaning = document.getElementById("meaning").innerText;
+      const date = document.getElementById("date").innerText;
+      const editUrl = `edit.html?level=${level}&word=${word}&meaning=${meaning}&date=${date}`;
+      window.location.href = editUrl;
+    }
+
+    // delete 버튼
+    function confirmDelete(){
+        if (confirm("해당 단어를 삭제하시겠습니까?")){
+          null;
+        }
+      }
+
+    </script>  
   </body>
 </html>
